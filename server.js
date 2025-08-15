@@ -6,12 +6,16 @@ const server = express(); //Server
 let port = 3000;
 
 //Paths
+var pages = {
+    home: "home",
+    stock: "stock"
+};
 
 // Middleware
 
 //Server Paths
 server.get( '/', (request, response) => {
-    response.send("Welcome holmes!");
+    response.send("Testing");
 });
 
 //Debugging
