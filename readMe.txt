@@ -1,0 +1,1 @@
+Setup for Jira and github desktop
