@@ -1,21 +1,28 @@
+require('dotenv').config(); //Loads environment Variables
 //Environment imports
 const express = require("express"); //Express
 const server = express(); //Server
+const mongoose = require("mongoose");
+const async = require("async");
 
 //General Variables
-let port = 3000;
+const port = process.env.PORT || 3000;
+const mongo_URI = process.env.MONGODB_URI;
 
 //Paths
-var pages = {
-    home: "home",
-    stock: "stock"
-};
+const routes = [
+    {path: "/contact", view: "contact"}
+];
 
 // Middleware
+server.use(express.static("public"));
+server.set("view engine", "ejs");
 
 //Server Paths
-server.get( '/', (request, response) => {
-    response.send("Testing");
+routes.forEach(route => {
+    server.get(route.path, (request, response) => {
+        response.render(route.view);
+    });
 });
 
 //Debugging
