@@ -11,7 +11,8 @@ const mongo_URI = process.env.MONGODB_URI;
 
 //Paths
 const routes = [
-    {path: "/contact", view: "contact"}
+    {path: "/contact", view: "contact"},
+    {path: "/main", view: "main"}
 ];
 
 // Middleware
