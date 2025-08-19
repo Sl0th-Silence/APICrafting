@@ -4,6 +4,25 @@ const express = require("express"); //Express
 const server = express(); //Server
 const mongoose = require("mongoose");
 const async = require("async");
+const jwt = require("jsonwebtoken"); // Adding Json Web Token service. Adds tokens for clients to use for easier login/relogin
+
+//SECURITY//
+const secretKey = "This_Is_How_We_Do_It"; // Secret key for signing and verifying tokens
+
+//sign a token
+const token = jwt.sign({userID: "123", role: "admin"}, secretKey, {expiresIn: '1hr'});
+console.log("Generated Token: ", token);
+
+//Verify a Token
+try {
+    const decoded = jwt.verify(token,secretKey);
+    console.log("Decoded token: ", decoded);
+    console.log(decoded.userID);
+}catch(err){
+    console.error("Token Verification Failed", err.message);
+}
+
+//END SECURITY//
 
 //General Variables
 const port = process.env.PORT || 3000;
