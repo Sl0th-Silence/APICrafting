@@ -7,6 +7,15 @@
     <%- include('partial/navBar') %>
 </head>
 <body>
-    
+    <div style="background-color:aliceblue; text-align: center; font-size: larger; font-family: cursive;">
+        <% for(let ctr = 1; ctr < 11; ctr++) { %>
+                <%= ctr %>.&nbsp;&nbsp;&nbsp;
+            <% for(let ctrTwo = 1; ctrTwo < 11; ctrTwo++) { %>
+                <%=ctrTwo%> &nbsp;&nbsp;
+            <% } %>
+            <br><br>
+            <% } %>
+    </div>
+    <p style="font-size: 40px;">INSANITY</p>
 </body>
 </html>
