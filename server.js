@@ -15,9 +15,9 @@ console.log("Generated Token: ", token);
 
 //Verify a Token
 try {
-    const decoded = jwt.verify(token,secretKey);
-    console.log("Decoded token: ", decoded);
-    console.log(decoded.userID);
+    const decoded = jwt.verify(token, secretKey);//Attempts to decode using the secret key
+    console.log("Decoded token: ", decoded);//Shows the decoded token
+    console.log(decoded.userID);//Shows one param of the decoded token that we know it has
 }catch(err){
     console.error("Token Verification Failed", err.message);
 }
@@ -30,12 +30,14 @@ const mongo_URI = process.env.MONGODB_URI;
 
 //Paths
 const routes = [
-    {path: "/contact", view: "contact"},
-    {path: "/main", view: "main"}
+    {path: "/", view: "01_main"},
+    {path: "/contact", view: "02_contact"},
+    {path: "/main", view: "01_main"},
+    {path: "/listings", view: "03_listings"}
 ];
 
 // Middleware
-server.use(express.static("public"));
+server.use(express.static("views"));
 server.set("view engine", "ejs");
 
 //Server Paths
