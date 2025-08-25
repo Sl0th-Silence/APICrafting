@@ -33,11 +33,12 @@ const routes = [
     {path: "/", view: "01_main"},
     {path: "/contact", view: "02_contact"},
     {path: "/main", view: "01_main"},
-    {path: "/listings", view: "03_listings"}
+    {path: "/listings", view: "03_listings"},
+    {path: "/loginPage", view: "04_loginPage"}
 ];
 
 // Middleware
-server.use(express.static("views"));
+server.use(express.static("public"));
 server.set("view engine", "ejs");
 
 //Server Paths
@@ -46,6 +47,11 @@ routes.forEach(route => {
         response.render(route.view);
     });
 });
+
+//Login
+server.get("/login", (request, response) => {
+    response.send("Login!");
+})
 
 //Debugging
 server.listen(port, () => {
