@@ -6,9 +6,13 @@ To Do!
 - Pull from the database, into the site and list houses on the listing pages
 - Get a single page listing like we did in Ziads class
 - Cry and contemplate your life choices
-- Drink coffee
+- Drink coffee. LOTS OF COFFEE!!!
 - Check out bootstrap for testing the site publicly
 
 Would be nice
 - Basic sign in page using the security tokens
-- 
+
+
+Adding / Cleaning files. We should use an external file to populate the Mongo database then use an internal file such as scrape.py
+to bring in the data from the database.
+

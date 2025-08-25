@@ -1,3 +1,5 @@
+# For bringing in data from a MongoDB to be used in the site
+
 from pymongo import MongoClient
 #Inserted data into database 
 #houses.insert_one({"Type": "Condo", "Price": 300000})
@@ -16,5 +18,3 @@ houses = dbConnection()
 results = houses.find()
 for result in results:
     print(result)
-
-#IT WORKS!!!!!!!!!!!!!!!!!
